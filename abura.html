@@ -3,55 +3,87 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>油絵入門 — はじめてのオイルペインティング</title>
+  <title>油絵入門 — Blue Edition</title>
   <style>
-    :root{
-      --bg:#f7f7f7; --card:#ffffff; --accent:#2b9fb3; --muted:#666;
-      --container:1100px;
+    :root {
+      --bg: #0d1b2a;
+      --card: #1b263b;
+      --accent: #00b4d8;
+      --text: #e0e1dd;
+      --muted: #8da9c4;
+      --container: 1100px;
     }
-    *{box-sizing:border-box}
-    body{font-family: "Noto Sans JP", "Helvetica", Arial, sans-serif; background:var(--bg); color:#222; line-height:1.6}
-    .wrap{max-width:var(--container); margin:36px auto; padding:20px}
-    header{display:flex; gap:18px; align-items:center}
-    .logo{width:72px; height:72px; border-radius:12px; background:linear-gradient(135deg,#fff,#e6f7fa); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 18px rgba(43,159,179,0.12)}
-    h1{font-size:26px}
-    .lead{color:var(--muted); margin-top:6px}
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', 'Noto Sans JP', sans-serif;
+      background: radial-gradient(circle at top, #0d1b2a, #000814 80%);
+      color: var(--text);
+      line-height: 1.7;
+      margin: 0;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    .wrap { max-width: var(--container); margin: 40px auto; padding: 20px; }
+    header { display: flex; align-items: center; gap: 20px; }
+    .logo {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: linear-gradient(135deg, #0077b6, #00b4d8);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 34px; color: white; box-shadow: 0 0 25px rgba(0,180,216,0.4);
+    }
+    h1 { font-size: 28px; color: #caf0f8; }
+    .lead { color: var(--muted); }
+    nav { margin: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+    nav a { margin-right: 16px; font-weight: bold; transition: color .2s; }
+    nav a:hover { color: #90e0ef; }
 
-    nav{margin:18px 0}
-    nav a{margin-right:12px; color:var(--accent); text-decoration:none}
+    .grid { display: grid; grid-template-columns: 1fr 320px; gap: 24px; }
+    .card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+      backdrop-filter: blur(6px);
+      transition: transform .3s;
+    }
+    .card:hover { transform: translateY(-2px); }
+    .section-title h2 { font-size: 20px; color: #90e0ef; margin-bottom: 10px; }
+    h3 { color: #ade8f4; }
+    ul, ol { padding-left: 20px; }
+    li { margin: 6px 0; }
 
-    .grid{display:grid; grid-template-columns: 1fr 340px; gap:22px}
-    .card{background:var(--card); padding:18px; border-radius:12px; box-shadow:0 6px 18px rgba(10,10,10,0.04)}
-    .section-title{display:flex; align-items:center; gap:10px; margin-bottom:8px}
-    .section-title h2{font-size:18px}
-    ul.check{padding-left:18px}
+    .gallery-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+    }
+    .gallery-grid img {
+      width: 100%; height: 180px; object-fit: cover;
+      border-radius: 10px; cursor: pointer;
+      box-shadow: 0 0 12px rgba(0,180,216,0.2);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .gallery-grid img:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 20px rgba(0,180,216,0.5);
+    }
+    input[type=url] {
+      flex: 1; padding: 8px; border-radius: 8px; border: none;
+      background: rgba(255,255,255,0.08); color: var(--text);
+    }
+    .btn {
+      background: var(--accent); border: none; color: white;
+      padding: 8px 12px; border-radius: 8px; cursor: pointer;
+      font-weight: bold; transition: background .3s;
+    }
+    .btn:hover { background: #48cae4; }
+    .btn.secondary {
+      background: rgba(255,255,255,0.1); color: #90e0ef;
+    }
+    .btn.secondary:hover { background: rgba(255,255,255,0.2); }
 
-    /* materials list */
-    .materials ul{list-style:none; padding-left:0}
-    .materials li{padding:8px 0; border-bottom:1px dashed #eee}
-    .materials b{display:inline-block; min-width:110px}
-
-    /* steps */
-    ol.steps{padding-left:18px}
-    ol.steps li{margin:12px 0}
-
-    /* gallery */
-    .gallery-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:8px}
-    .gallery-grid img{width:100%; height:160px; object-fit:cover; border-radius:8px; cursor:pointer}
-    .gallery-controls{display:flex; gap:8px; margin-top:10px}
-    input[type=url]{flex:1; padding:8px; border-radius:8px; border:1px solid #ddd}
-    .btn{background:var(--accent); color:white; border:none; padding:8px 12px; border-radius:8px; cursor:pointer}
-    .btn.secondary{background:#e6f7fa; color:#0b5663}
-
-    aside .card{position:sticky; top:20px}
-
-    footer{margin-top:20px; text-align:center; color:var(--muted); font-size:13px}
-
-    /* responsive */
-    @media (max-width:900px){
-      .grid{grid-template-columns:1fr}
-      .gallery-grid{grid-template-columns:repeat(2,1fr)}
-      .gallery-grid img{height:130px}
+    aside .card { position: sticky; top: 20px; }
+    footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 30px; }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -60,149 +92,113 @@
     <header>
       <div class="logo">🎨</div>
       <div>
-        <h1>油絵入門 — はじめてのオイルペインティング</h1>
-        <div class="lead">準備物、基本の塗り方、道具の使い方、簡単な歴史とギャラリーを1ページにまとめました。初心者向けの実践的な案内です。</div>
+        <h1>油絵入門 — Blue Edition</h1>
+        <div class="lead">青を基調としたクールなデザインで学ぶ油絵の世界。初心者でもわかりやすく。</div>
       </div>
     </header>
 
     <nav>
       <a href="#materials">準備物</a>
-      <a href="#howto">簡単な塗り方</a>
-      <a href="#tools">道具の説明</a>
+      <a href="#howto">塗り方</a>
+      <a href="#tools">道具</a>
       <a href="#history">歴史</a>
       <a href="#gallery">ギャラリー</a>
     </nav>
 
     <div class="grid">
       <main>
-        <section id="materials" class="card materials">
-          <div class="section-title"><h2>準備物（初心者セット）</h2></div>
-          <p>最低限これだけ揃えれば、まず描き始められます。</p>
+        <section id="materials" class="card">
+          <div class="section-title"><h2>準備物</h2></div>
           <ul>
-            <li><b>キャンバス</b>：既成のキャンバス板（F6〜F10くらいが扱いやすい）</li>
-            <li><b>油絵具</b>：基本の色（白、黒、ウルトラマリン、バーントシェンナ、イエローオーカー、アルキド系チューブでOK）</li>
-            <li><b>筆</b>：豚毛のラウンド／フラット数本（小・中・大）</li>
-            <li><b>パレット</b>：木製またはプラスチックのパレット</li>
-            <li><b>ペインティングナイフ</b>：混色や厚塗りに便利</li>
-            <li><b>溶剤</b>：揮発性の低い「無臭うすめ液（OMS）」やテレピン（換気必須）</li>
-            <li><b>油性メディウム</b>：植物系の亜麻仁油や市販の速乾メディウム</li>
-            <li><b>イーゼル</b>：卓上タイプでも自立するもの</li>
-            <li><b>ウエス・ペーパータオル</b>：拭き取り用</li>
-            <li><b>パレットナイフ、ガムテープ、鉛筆、消しゴム</b></li>
+            <li><b>キャンバス：</b> F6〜F10サイズの板</li>
+            <li><b>油絵具：</b> 白・黒・ウルトラマリン・イエローオーカーなど基本色</li>
+            <li><b>筆：</b> 豚毛のラウンド・フラット数本</li>
+            <li><b>パレット：</b> 木製またはプラ製</li>
+            <li><b>溶剤：</b> 無臭うすめ液（換気必須）</li>
+            <li><b>メディウム：</b> 速乾・艶出しなど用途に応じて</li>
+            <li><b>ナイフ：</b> 厚塗りや混色用</li>
           </ul>
-          <p style="color:var(--muted)">安全メモ：換気を良くし、溶剤は密閉して保管。手に油が付いたら専用のクリーナーで落とし、火気に注意。</p>
         </section>
 
-        <section id="howto" class="card" style="margin-top:18px">
-          <div class="section-title"><h2>簡単な塗り方（ステップ・バイ・ステップ）</h2></div>
-          <ol class="steps">
-            <li><b>下描き（スケッチ）</b>：鉛筆や薄めのチューブでキャンバスに大まかな構図を描きます。</li>
-            <li><b>下地（アンダーペイント）</b>：薄めの色で主要な明暗を置き、全体のトーンを整えます（薄い溶剤で淡くのばす）。</li>
-            <li><b>ブロッキングイン</b>：大きな面を塗り分けて、色のグループを決めます。細部はまだ描かない。</li>
-            <li><b>中塗り（モデリング）</b>：形を意識して明暗で立体感を出します。ブラシのタッチを活かして丁寧に。</li>
-            <li><b>仕上げ（ハイライト・ディテール）</b>：最も明るい部分や細部を描き込みます。必要ならグレーズ（薄い透明レイヤー）で色に深みを出す。</li>
-            <li><b>乾燥・ニス掛け</b>：完全に乾いてから保護ニスを塗る（油彩は乾燥に数週間〜数か月かかる場合あり）。</li>
+        <section id="howto" class="card" style="margin-top:20px">
+          <div class="section-title"><h2>塗り方の基本</h2></div>
+          <ol>
+            <li>下描きを鉛筆や薄い色で行う。</li>
+            <li>下地を作って明暗を整える。</li>
+            <li>大きな面を塗り分け、構図を固める。</li>
+            <li>中塗りで形と立体感を作る。</li>
+            <li>仕上げにハイライトと細部を描き込む。</li>
+            <li>十分に乾かしてからニス掛け。</li>
           </ol>
-          <p>ポイント：油彩は"fat over lean"の原則（厚い油分の層を上に）を守るとヒビ割れが起きにくいです。</p>
         </section>
 
-        <section id="tools" class="card" style="margin-top:18px">
-          <div class="section-title"><h2>道具の説明（詳しく）</h2></div>
-          <h3>筆の種類</h3>
-          <p>豚毛（コシがあり厚塗り向き）、合成毛（柔らかめで滑らかな表現）、ヤギ毛やイタチ毛は細部向け。形はラウンド、フラット、フィルバートなど。</p>
-          <h3>溶剤とメディウム</h3>
-          <p>溶剤は旧来のテレピンやガソリン系溶媒、現代は「無臭うすめ液（ODS/OMS）」が主流。メディウムで乾きや光沢、流動性を調整できます。</p>
-          <h3>パレットナイフ</h3>
-          <p>絵具の混色や厚塗りの表現、エッジの作成に便利。ナイフを使うと大胆なテクスチャが作れます。</p>
+        <section id="tools" class="card" style="margin-top:20px">
+          <div class="section-title"><h2>道具の説明</h2></div>
+          <p>筆の種類、溶剤、ナイフなどそれぞれに個性があります。試しながら自分に合うものを見つけましょう。</p>
         </section>
 
-        <section id="history" class="card" style="margin-top:18px">
-          <div class="section-title"><h2>油絵の歴史（さわり）</h2></div>
-          <p>油絵の技法は中世末期〜ルネサンス期にかけて発展しました。15世紀のフランドル派（ヤン・ファン・エイクなど）が油彩の精密な表現を確立し、その後イタリアや北欧に広まりました。18〜19世紀に絵具チューブが発明されると屋外制作（エナ・プレ）や印象派の展開が加速しました。20世紀には多様な表現と混合技法が登場し、現代も多様な流派が存在します。</p>
-          <ul class="check">
-            <li><b>15世紀：</b>フランドル派の精密な油彩技法の確立。</li>
-            <li><b>17〜18世紀：</b>具象表現の発展、肖像や風景画が専門化。</li>
-            <li><b>19世紀：</b>チューブ絵具の普及、印象派の野外制作。</li>
-            <li><b>20世紀〜：</b>抽象表現、混合材の実験、多様化。</li>
-          </ul>
+        <section id="history" class="card" style="margin-top:20px">
+          <div class="section-title"><h2>油絵の歴史</h2></div>
+          <p>15世紀のフランドル派に始まり、印象派や現代アートに至るまで発展してきました。技術革新により、表現の自由度が増しています。</p>
         </section>
 
-        <section id="gallery" class="card" style="margin-top:18px">
-          <div class="section-title"><h2>軽いギャラリー</h2></div>
-          <p>自分の作品や参考画像を手軽に貼れるギャラリーです。下の入力欄に画像のURLを貼って「ギャラリーに追加」を押すと表示されます。サンプル画像を最初からいくつか置いています。</p>
-
+        <section id="gallery" class="card" style="margin-top:20px">
+          <div class="section-title"><h2>ギャラリー</h2></div>
           <div class="gallery-grid" id="galleryGrid">
-            <img src="https://via.placeholder.com/600x400?text=Sample+Painting+1" alt="sample1" />
-            <img src="https://via.placeholder.com/600x400?text=Sample+Painting+2" alt="sample2" />
-            <img src="https://via.placeholder.com/600x400?text=Sample+Painting+3" alt="sample3" />
-            <img src="https://via.placeholder.com/600x400?text=Sample+Painting+4" alt="sample4" />
+            <img src="https://via.placeholder.com/600x400/0077b6/ffffff?text=Sample+1" alt="sample1" />
+            <img src="https://via.placeholder.com/600x400/023e8a/ffffff?text=Sample+2" alt="sample2" />
+            <img src="https://via.placeholder.com/600x400/03045e/ffffff?text=Sample+3" alt="sample3" />
+            <img src="https://via.placeholder.com/600x400/00b4d8/ffffff?text=Sample+4" alt="sample4" />
           </div>
-
-          <div class="gallery-controls">
-            <input id="imgUrl" type="url" placeholder="画像のURLを貼ってください（例：https://...jpg）" />
-            <button class="btn" id="addBtn">ギャラリーに追加</button>
-            <button class="btn secondary" id="clearBtn">クリア（サンプルも消す）</button>
+          <div style="display:flex; gap:8px; margin-top:12px;">
+            <input id="imgUrl" type="url" placeholder="画像URLを貼ってください" />
+            <button class="btn" id="addBtn">追加</button>
+            <button class="btn secondary" id="clearBtn">クリア</button>
           </div>
           <p id="msg" style="color:var(--muted); margin-top:8px"></p>
         </section>
-
       </main>
 
       <aside>
         <div class="card">
-          <h3>初心者向けチェックリスト</h3>
+          <h3>初心者チェック</h3>
           <ul>
-            <li>換気できる場所を確保する</li>
-            <li>作業エプロンと手拭きを用意</li>
-            <li>最初は小さめの作品で練習</li>
-            <li>油性を扱うので火気に注意</li>
-            <li>作品は十分に乾かしてから移動</li>
+            <li>換気をしっかり確保</li>
+            <li>作業エプロンと手拭き用意</li>
+            <li>火気に注意</li>
+            <li>小作品からスタート</li>
           </ul>
-        </div>
-
-        <div class="card" style="margin-top:12px">
-          <h3>よくある質問（FAQ）</h3>
-          <p><b>Q：</b>乾くまでどれくらい？<br/><b>A：</b>薄塗りなら数日〜数週間。厚塗りやメディウム使用は数週間〜数か月。</p>
-          <p><b>Q：</b>初心者は何色を買うべき？<br/><b>A：</b>ホワイト、ブラック、ウルトラマリン（青）、バーントシェンナ（暖茶）、イエローオーカーの5色が万能です。</p>
         </div>
       </aside>
     </div>
 
-    <footer class="card" style="margin-top:18px">
-      <small>このサイトは初心者向けのガイドです。安全と素材の取扱説明に従って制作してください。</small>
+    <footer>
+      <small>© 2025 Oil Paint Guide — Blue Edition</small>
     </footer>
   </div>
 
   <script>
-    // ギャラリー機能（シンプル）
     const addBtn = document.getElementById('addBtn');
     const clearBtn = document.getElementById('clearBtn');
     const imgUrl = document.getElementById('imgUrl');
     const gallery = document.getElementById('galleryGrid');
     const msg = document.getElementById('msg');
 
-    addBtn.addEventListener('click', ()=>{
+    addBtn.addEventListener('click', () => {
       const url = imgUrl.value.trim();
-      if(!url){ msg.textContent = '画像URLを入力してください。'; return }
-      // simple validation
-      if(!/^https?:\/\/.+\.(jpg|jpeg|png|webp|gif)$/i.test(url)){
-        msg.textContent = '対応形式はjpg、png、webp、gifです（直接URLを貼ってください）。'; return
-      }
+      if (!url) { msg.textContent = '画像URLを入力してください。'; return; }
       const img = document.createElement('img');
-      img.src = url;
-      img.alt = 'user-added';
-      img.addEventListener('error', ()=>{ msg.textContent = '画像の読み込みに失敗しました。URLを確認してください。'; img.remove(); });
-      img.addEventListener('click', ()=>{ window.open(url, '_blank'); });
+      img.src = url; img.alt = 'user';
+      img.addEventListener('error', () => { msg.textContent = '画像が読み込めませんでした。'; img.remove(); });
       gallery.appendChild(img);
       imgUrl.value = '';
-      msg.textContent = 'ギャラリーに追加しました。画像をクリックすると元画像を開きます。';
+      msg.textContent = '追加しました。';
     });
 
-    clearBtn.addEventListener('click', ()=>{
-      while(gallery.firstChild) gallery.removeChild(gallery.firstChild);
+    clearBtn.addEventListener('click', () => {
+      while (gallery.firstChild) gallery.removeChild(gallery.firstChild);
       msg.textContent = 'ギャラリーをクリアしました。';
     });
-
   </script>
 </body>
 </html>
