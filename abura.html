@@ -64,7 +64,7 @@
       transform: scale(1.04);
       box-shadow: 0 0 20px rgba(0,180,216,0.5);
     }
-    input[type=url] {
+    input[type=url], input[type=file] {
       flex: 1; padding: 8px; border-radius: 8px; border: none;
       background: rgba(255,255,255,0.08); color: var(--text);
     }
@@ -146,9 +146,14 @@
           <div class="section-title"><h2>ギャラリー</h2></div>
           <div class="gallery-grid" id="galleryGrid">
             <img src="image/art1.png" alt="sample1" />
-            <img src="image/art2" alt="sample2" />
-            <img src="image/art3" alt="sample3" />
-            <img src="image/art4" alt="sample4" />
+            <img src="image/art2.png" alt="sample2" />
+          </div>
+
+          <div style="margin-top:15px; display:flex; gap:10px; flex-wrap:wrap;">
+            <input type="url" id="imgUrl" placeholder="画像URLを貼る" />
+            <input type="file" id="imgFile" accept="image/*" />
+            <button id="addBtn" class="btn">追加</button>
+            <button id="clearBtn" class="btn secondary">全削除</button>
           </div>
           <p id="msg" style="color:var(--muted); margin-top:8px"></p>
         </section>
@@ -176,23 +181,41 @@
     const addBtn = document.getElementById('addBtn');
     const clearBtn = document.getElementById('clearBtn');
     const imgUrl = document.getElementById('imgUrl');
+    const imgFile = document.getElementById('imgFile');
     const gallery = document.getElementById('galleryGrid');
     const msg = document.getElementById('msg');
 
     addBtn.addEventListener('click', () => {
       const url = imgUrl.value.trim();
-      if (!url) { msg.textContent = '画像URLを入力してください。'; return; }
+      const file = imgFile.files[0];
+      let imgSrc = "";
+
+      if (file) {
+        imgSrc = URL.createObjectURL(file);
+      } else if (url) {
+        imgSrc = url;
+      } else {
+        msg.textContent = "画像URLかファイルを選んでください。";
+        return;
+      }
+
       const img = document.createElement('img');
-      img.src = url; img.alt = 'user';
-      img.addEventListener('error', () => { msg.textContent = '画像が読み込めませんでした。'; img.remove(); });
+      img.src = imgSrc;
+      img.alt = 'user';
+      img.addEventListener('error', () => {
+        msg.textContent = "画像が読み込めませんでした。";
+        img.remove();
+      });
       gallery.appendChild(img);
+
       imgUrl.value = '';
-      msg.textContent = '追加しました。';
+      imgFile.value = '';
+      msg.textContent = "ギャラリーに追加しました。";
     });
 
     clearBtn.addEventListener('click', () => {
-      while (gallery.firstChild) gallery.removeChild(gallery.firstChild);
-      msg.textContent = 'ギャラリーをクリアしました。';
+      gallery.innerHTML = '';
+      msg.textContent = "ギャラリーをクリアしました。";
     });
   </script>
 </body>
