@@ -5,401 +5,401 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Generated Website</title>
   <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  --primary: #06b6d4;
-  --secondary: #0891b2;
-  --accent: #67e8f9;
-}
-
-body {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  min-height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  color: white;
-}
-
-header {
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  padding: 1rem 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.section {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
-  border-radius: 1rem;
-  padding: 2rem;
-}
-
-button, .btn {
-  background: var(--accent);
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-button:hover, .btn:hover {
-  background: var(--secondary);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
-
-h1, h2, h3 {
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-
-a {
-  color: var(--accent);
-}
-
-/* Custom Styles */
-.container {
-  max-width: 1200px;
-}
-
-header h1 {
-  font-size: 2.25rem; /* text-3xl */
-  font-weight: bold;
-}
-
-header nav ul {
-  display: flex;
-  list-style: none;
-  gap: 1.5rem; /* space-x-6 */
-}
-
-header nav a {
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-#hero {
-  padding: 4rem 2rem;
-  margin-bottom: 3rem;
-  position: relative;
-  overflow: hidden;
-}
-
-#hero h2 {
-  font-size: 3rem; /* text-5xl */
-  font-weight: 800; /* font-extrabold */
-  margin-bottom: 1rem;
-}
-
-#hero p {
-  font-size: 1.125rem; /* text-lg */
-  line-height: 1.75rem; /* leading-relaxed */
-  max-width: 48rem; /* max-w-3xl */
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#hero button {
-  margin-top: 2rem;
-  font-size: 1.125rem; /* text-lg */
-  font-weight: 600; /* font-semibold */
-}
-
-#about {
-  margin-bottom: 3rem;
-}
-
-#about h2 {
-  font-size: 2.5rem; /* text-4xl */
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-}
-
-#about > div {
-  display: grid;
-  gap: 2rem; /* gap-8 */
-}
-
-#about > div > div {
-  border-radius: 0.5rem;
-  padding: 1.5rem;
-  background: rgba(0, 0, 0, 0.3); /* bg-gray-800 bg-opacity-30 */
-  backdrop-filter: blur(0.5rem);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
-}
-
-#about > div > div:hover {
-  transform: scale(1.05);
-}
-
-#about h3 {
-  font-size: 1.5rem; /* text-2xl */
-  font-weight: 600; /* font-semibold */
-  margin-bottom: 0.75rem;
-}
-
-#about p {
-  line-height: 1.6;
-}
-
-#learn {
-  margin-bottom: 3rem;
-}
-
-#learn h2 {
-  font-size: 2.5rem; /* text-4xl */
-  font-weight: bold;
-  margin-bottom: 2rem;
-}
-
-#learn > div {
-  display: grid;
-  gap: 1.5rem; /* gap-6 */
-}
-
-#learn > div > div {
-  border-radius: 0.5rem;
-  padding: 1.5rem;
-  background: rgba(0, 0, 0, 0.3); /* bg-gray-800 bg-opacity-30 */
-  backdrop-filter: blur(0.5rem);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem; /* space-x-4 */
-}
-
-#learn > div > div span {
-  font-size: 3rem; /* text-5xl */
-  color: var(--accent);
-  flex-shrink: 0;
-}
-
-#learn h3 {
-  font-size: 1.5rem; /* text-2xl */
-  font-weight: 600; /* font-semibold */
-  margin-bottom: 0.5rem;
-  line-height: 1.3;
-}
-
-#support {
-  padding: 2rem;
-  margin-bottom: 3rem;
-  text-align: center;
-}
-
-#support h2 {
-  font-size: 2.5rem; /* text-4xl */
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-}
-
-#support p {
-  font-size: 1.125rem; /* text-lg */
-  line-height: 1.75rem; /* leading-relaxed */
-  max-width: 64rem; /* max-w-4xl */
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 2rem;
-}
-
-#support p:last-of-type {
-    font-size: 1.25rem; /* text-xl */
-    font-weight: 500; /* font-medium */
-    margin-bottom: 0;
-}
-
-#support button {
-  margin-top: 2.5rem;
-  font-size: 1.25rem; /* text-xl */
-  font-weight: 600; /* font-semibold */
-}
-
-footer {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  text-align: center;
-  opacity: 0.7;
-}
-
-/* Responsive Design */
-@media (min-width: 768px) {
-  #about > div {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-  #learn > div {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  
+  :root {
+    --primary: #06b6d4;
+    --secondary: #0891b2;
+    --accent: #67e8f9;
   }
-}
-
-@media (min-width: 1024px) {
-  #learn > div {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  
+  body {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: white;
+    line-height: 1.6;
   }
-}
+  
+  header {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem 0;
+    text-align: center;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .section {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    margin: 2rem auto;
+    padding: 3rem 1.5rem;
+    border-radius: 15px;
+    max-width: 1200px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  button, .btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  button:hover, .btn:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  }
+  
+  h1, h2, h3 {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
 
-/* Animations */
-@keyframes fade-in-down {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+  h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+  }
 
-@keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+  h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
 
-@keyframes scale-in {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
-}
+  h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
 
-.animate-fade-in-down { animation: fade-in-down 0.8s ease-out forwards; }
-.animate-fade-in-up { animation: fade-in-up 0.8s ease-out forwards 0.2s; opacity: 0; }
-.animate-scale-in { animation: scale-in 0.6s ease-out forwards 0.4s; opacity: 0; }
+  a:hover {
+    color: var(--secondary);
+    text-decoration: underline;
+  }
 
-.animate-card-fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fade-in-up 0.6s ease-out forwards var(--delay);
-}
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
 
-.animate-card-fade-in:nth-child(1) { --delay: 0s; }
-.animate-card-fade-in:nth-child(2) { --delay: 0.1s; }
-.animate-card-fade-in:nth-child(3) { --delay: 0.2s; }
-.animate-card-fade-in:nth-child(4) { --delay: 0.3s; }
-.animate-card-fade-in:nth-child(5) { --delay: 0.4s; }
-.animate-card-fade-in:nth-child(6) { --delay: 0.5s; }
+  .header h1 {
+    margin-bottom: 0.5rem;
+  }
 
+  .header p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .nav-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .hero-section {
+    text-align: center;
+    padding: 4rem 1.5rem;
+  }
+
+  .hero-section p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+
+  .features-section p, .history-section p {
+    margin-bottom: 1rem;
+    opacity: 0.9;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .feature-item {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .feature-item h3 {
+    color: var(--accent);
+    text-shadow: none;
+  }
+
+  .feature-description, .history-summary {
+    font-style: italic;
+    text-align: center;
+    margin-top: 2.5rem;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .history-timeline {
+    position: relative;
+    margin-top: 3rem;
+    padding-left: 20px;
+  }
+
+  .history-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--accent);
+    filter: drop-shadow(0 0 5px var(--accent));
+    border-radius: 2px;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+    padding-left: 30px;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }
+
+  .timeline-item h3 {
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 3rem;
+  }
+
+  .footer p {
+    opacity: 0.7;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+    }
+
+    .nav-links {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .nav-links a {
+      padding: 0.8rem;
+    }
+
+    .feature-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .section {
+      margin: 1.5rem auto;
+      padding: 2rem 1rem;
+    }
+
+    .history-timeline::before {
+      left: 10px;
+    }
+
+    .timeline-item {
+      padding-left: 45px;
+    }
+
+    .timeline-item::before {
+      left: 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .hero-section button {
+      width: 100%;
+      padding: 15px 0;
+    }
+  }
   </style>
 </head>
 <body>
-<header class="py-4 px-6 md:px-12 flex justify-between items-center">
-    <h1 class="text-3xl font-bold">🎨 油絵教室</h1>
-    <nav>
-        <ul class="flex space-x-6">
-            <li><a href="#hero" class="hover:text-accent transition-colors duration-300">トップ</a></li>
-            <li><a href="#about" class="hover:text-accent transition-colors duration-300">油絵の魅力</a></li>
-            <li><a href="#learn" class="hover:text-accent transition-colors duration-300">学べること</a></li>
-            <li><a href="#support" class="hover:text-accent transition-colors duration-300">指導方法</a></li>
-        </ul>
-    </nav>
-</header>
-
-<main class="container mx-auto px-4 py-8">
-    <section id="hero" class="section rounded-lg shadow-xl p-8 mb-12 text-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-20 transform -rotate-12 scale-150"></div>
-        <div class="relative z-10">
-            <h2 class="text-5xl font-extrabold mb-4 animate-fade-in-down">ようこそ油絵教室へ</h2>
-            <p class="text-lg leading-relaxed max-w-3xl mx-auto animate-fade-in-up">
-                油絵は、その豊かな色彩と深みのある表現力で、古くから多くの芸術家や愛好家を魅了してきました。この教室では、油絵の基礎から応用までを丁寧に学び、あなた自身の創造性を開花させるお手伝いをいたします。全くの初心者の方から、さらに技術を磨きたい経験者の方まで、どなたでも歓迎です。
-            </p>
-            <button class="mt-8 text-lg font-semibold animate-scale-in">体験レッスンに申し込む ✨</button>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>🎨 初心者向け油絵講座サイトのご案内 🎨</h1>
+            <p>〜油絵の魅力と歴史概要〜</p>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#charm">油絵の魅力</a></li>
+                    <li><a href="#site-features">サイトの役割</a></li>
+                    <li><a href="#history">油絵の歴史</a></li>
+                </ul>
+            </nav>
         </div>
-    </section>
+    </header>
 
-    <section id="about" class="section rounded-lg shadow-xl p-8 mb-12">
-        <h2 class="text-4xl font-bold mb-6 text-center">🎨 油絵の魅力と特徴 🌈</h2>
-        <div class="grid md:grid-cols-2 gap-8 items-center">
-            <div class="p-6 rounded-lg bg-gray-800 bg-opacity-30 backdrop-filter backdrop-blur-md shadow-lg transform hover:scale-105 transition-transform duration-300">
-                <h3 class="text-2xl font-semibold mb-3">🎨 独特の質感と奥行き</h3>
-                <p class="leading-relaxed">
-                    油絵の最大の魅力は、その独特の質感と奥行きにあります。顔料を油で練って作られる絵具は、乾燥が遅いため、じっくりと色を混ぜ合わせたり、重ね塗りをしたりすることが可能です。これにより、複雑なグラデーションや、見る角度によって表情を変えるような立体的な表現が生まれます。また、一度乾いた上からでも色を加えて修正できるため、描き直しが容易で、初心者の方でも安心して制作に取り組めます。
-                </p>
+    <main>
+        <section id="charm" class="section hero-section">
+            <div class="container">
+                <h2>１ 油絵の魅力と初心者向けサイトの役割</h2>
+                <p>油絵は、その豊かな色彩と深みのある表現力から、多くの人々を魅了する画材です。しかし、「難しそう」「道具を揃えるのが大変そう」といったイメージから、なかなか一歩を踏み出せない方も少なくありません。そこで、本レポートでは、初心者の皆さんが安心して油絵を始められるよう設計された「初心者向け油絵講座サイト」の概要と、油絵の魅力をより深く理解するための「油絵の歴史」を簡潔にまとめてご紹介します。</p>
+                <button class="btn">講座サイトへ！ 🚀</button>
             </div>
-            <div class="p-6 rounded-lg bg-gray-800 bg-opacity-30 backdrop-filter backdrop-blur-md shadow-lg transform hover:scale-105 transition-transform duration-300">
-                <h3 class="text-2xl font-semibold mb-3">✨ 多様な表現の可能性</h3>
-                <p class="leading-relaxed">
-                    油絵は、透明度の高い表現から、不透明で重厚な表現まで、幅広い支持層に対応できます。厚塗りで絵具の盛り上がりを楽しむこともできますし、薄く溶いて水彩画のような効果を出すことも可能です。このように多様な表現方法があるため、各々の個性に応じた作品制作が実現します。
-                </p>
+        </section>
+
+        <section id="site-features" class="section features-section">
+            <div class="container">
+                <h2>初心者向け油絵講座サイトの特徴</h2>
+                <p>初心者向け油絵講座サイトは、まったく経験のない方でも、油絵の基礎から応用までを段階的に学べるよう構成されています。主な特徴は以下の通りです。</p>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h3>１ 道具の選び方と揃え方</h3>
+                        <p>絵の具の種類、筆の選び方、パレットや溶剤など、油絵に必要な道具とその選び方を詳しく解説しています。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>２ 基本的な描き方と技法</h3>
+                        <p>混色、塗り方、重ね塗り、グレーズ、スクラッチなど、油絵特有の基本的な技法を実践的なステップで紹介しています。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>３ モチーフの選び方と構図</h3>
+                        <p>静物、風景、人物など、初心者におすすめのモチーフ選びのヒントや、絵画の基本となる構図の考え方を解説しています。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>４ 作品制作のプロセス</h3>
+                        <p>下絵から完成までの具体的な制作手順を、動画や画像を用いて分かりやすく解説しています。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>５ よくある質問とトラブルシューティング</h3>
+                        <p>絵の具が乾かない、筆が固まってしまったなど、初心者が抱えやすい疑問やトラブルに対する解決策を提供しています。</p>
+                    </div>
+                </div>
+                <p class="feature-description">これらのコンテンツを通じて、初心者の皆さんは自宅にいながら、自分のペースで油絵の楽しさを体験し、創造性を育むことができるでしょう。</p>
             </div>
+        </section>
+
+        <section id="history" class="section history-section">
+            <div class="container">
+                <h2>２ 油絵の歴史</h2>
+                <p>油絵は、その独特の光沢と耐久性、そして繊細な表現力によって、今日まで多くの画家たちに愛されてきました。その歴史は、中世ヨーロッパにまで遡ります。</p>
+
+                <div class="history-timeline">
+                    <div class="timeline-item">
+                        <h3>１ 起源</h3>
+                        <p>油彩技法の起源は、13世紀頃のヨーロッパに遡るとされています。当時はテンペラ画が主流でしたが、油が顔料の結合材として用いられるようになり、フランドル地方で発展しました。</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>２ ファン・エイク兄弟の貢献</h3>
+                        <p>15世紀のフランドルの画家、ヤン・ファン・エイクとその兄ユベール・ファン・エイクは、油絵の技法を大きく発展させたとされています。彼らは、油絵具を乾性油で練り上げ、透明感のある層を重ねることで、豊かな色彩と光沢、そして精緻な描写を可能にしました。これにより、絵画表現の可能性が飛躍的に広がりました。</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>３ ルネサンス期の隆盛</h3>
+                        <p>16世紀のイタリアルネサンス期には、油絵はさらに普及し、レオナルド・ダ・ヴィンチ、ミケランジェロ、ラファエロといった巨匠たちによって、その表現力が最大限に引き出されました。彼らは、油絵具の特性を活かし、人間像の深みや風景の奥行きを表現しました。</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>４ 時代ごとの変遷</h3>
+                        <p>バロック期には、レンブラントやルーベンスが光と影の表現を追求し、ロココ期には優美で装飾的な絵画が描かれました。19世紀の印象派の画家たちは、光や色彩の瞬間的な変化を捉えるために、筆触分割などの新たな技法を生み出しました。さらに20世紀以降は、キュビスム、シュルレアリスム、抽象表現主義など、多様な様式が生まれ、油絵は常にその表現の幅を広げてきました。</p>
+                    </div>
+                </div>
+                <p class="history-summary">油絵は、このように長い歴史の中で、様々な画家たちの手によって進化し、現代に至っています。この奥深い歴史を知ることは、油絵を学ぶ上で新たな視点を与えてくれることでしょう。初心者向けサイトで実践的な技術を学びつつ、油絵の歴史にも触れることで、より一層油絵の世界を楽しむことができます。</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 油絵講座サイト. All rights reserved.</p>
+            <p>🎨 Learn, Create, Inspire 🎨</p>
         </div>
-    </section>
-
-    <section id="learn" class="section rounded-lg shadow-xl p-8 mb-12">
-        <h2 class="text-4xl font-bold mb-8 text-center">🧑‍🎨 教室で学べること 💡</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="p-6 rounded-lg bg-gray-800 bg-opacity-30 backdrop-filter backdrop-blur-md shadow-lg flex items-start space-x-4 animate-card-fade-in">
-                <span class="text-5xl">1.</span>
-                <div>
-                    <h3 class="text-2xl font-semibold mb-2">絵具の種類と特性の理解</h3>
-                    <p>油絵具には様々な種類があり、その特性を理解することは作品制作において非常に重要です。顔料の性質、油の種類、乾燥時間などについて学びます。</p>
-                </div>
-            </div>
-            <div class="p-6 rounded-lg bg-gray-800 bg-opacity-30 backdrop-filter backdrop-blur-md shadow-lg flex items-start space-x-4 animate-card-fade-in delay-100">
-                <span class="text-5xl">2.</span>
-                <div>
-                    <h3 class="text-2xl font-semibold mb-2">画材の選び方と使い方</h3>
-                    <p>キャンバス、筆、ペインティングナイフ、溶き油など、油絵に必要な画材の種類と、それぞれの正しい使い方を習得します。</p>
-                </div>
-            </div>
-            <div class="p-6 rounded-lg bg-gray-800 bg-opacity-30 backdrop-filter backdrop-blur-md shadow-lg flex items-start space-x-4 animate-card-fade-in delay-200">
-                <span class="text-5xl">3.</span>
-                <div>
-                    <h3 class="text-2xl font-semibold mb-2">色の混ぜ方と色彩理論</h3>
-                    <p>基本となる原色から様々な色を作り出す方法や、色彩が作品に与える影響について学びます。</p>
-                </div>
-            </div>
-            <div class="p-6 rounded-lg bg-gray-800 bg-opacity-30 backdrop-filter backdrop-blur-md shadow-lg flex items-start space-x-4 animate-card-fade-in delay-300">
-                <span class="text-5xl">4.</span>
-                <div>
-                    <h3 class="text-2xl font-semibold mb-2">筆遣いと表現技法</h3>
-                    <p>筆の持ち方、筆圧の調整、様々な筆遣いによる表現技法や、重ね塗り、グレーズ、インパストなど、油絵特有の技法を実践を通して学びます。</p>
-                </div>
-            </div>
-            <div class="p-6 rounded-lg bg-gray-800 bg-opacity-30 backdrop-filter backdrop-blur-md shadow-lg flex items-start space-x-4 animate-card-fade-in delay-400">
-                <span class="text-5xl">5.</span>
-                <div>
-                    <h3 class="text-2xl font-semibold mb-2">構図と遠近法</h3>
-                    <p>魅力的な作品を制作するための構図の考え方や、空間を表現する遠近法について学びます。</p>
-                </div>
-            </div>
-            <div class="p-6 rounded-lg bg-gray-800 bg-opacity-30 backdrop-filter backdrop-blur-md shadow-lg flex items-start space-x-4 animate-card-fade-in delay-500">
-                <span class="text-5xl">6.</span>
-                <div>
-                    <h3 class="text-2xl font-semibold mb-2">モチーフの選び方と表現</h3>
-                    <p>静物、風景、人物など、様々なモチーフの描き方を学び、それぞれのモチーフが持つ特徴を油絵でどのように表現するかを探求します。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="support" class="section rounded-lg shadow-xl p-8 mb-12 text-center">
-        <h2 class="text-4xl font-bold mb-6">🤝 指導方法 🌟</h2>
-        <p class="text-lg leading-relaxed max-w-4xl mx-auto mb-8">
-            少人数制のクラスで、個々のレベルやペースに合わせた丁寧な指導を行います。講師が実演を交えながら指導し、生徒一人ひとりの作品に対して細やかなアドバイスを提供します。疑問点があればその場で質問でき、他の生徒さんの作品から刺激を受けることもできます。
-        </p>
-        <p class="text-xl font-medium leading-relaxed max-w-4xl mx-auto">
-            油絵を描くことは、自己表現の喜びを見つけ、集中力を高め、そして何よりも心豊かな時間を過ごすことにつながります。絵を描くことに興味があるけれど何から始めて良いか分からないという方も、ぜひこの機会に油絵の世界へと一歩を踏み出してみませんか。私たちは、あなたが油絵の楽しさを発見し、素晴らしい作品を生み出すことができるよう、全力でサポートいたします。皆様のお越しを心よりお待ちしております。
-        </p>
-        <button class="mt-10 text-xl font-semibold">お問い合わせはこちらから ✉️</button>
-    </section>
-</main>
-
-<footer class="py-6 px-6 text-center opacity-70">
-    <p>&copy; 2023 油絵教室 All rights reserved.</p>
-</footer>
+    </footer>
+</body>
 
   <script>
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
 
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
   </script>
 </body>
 </html>
